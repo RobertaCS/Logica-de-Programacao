@@ -89,17 +89,26 @@
 
   <script>
 
-    function calcularMedia(){
-      
+    function calcularMedia() {
+      // Pegando os valores das notas
       let nota1 = Number(document.getElementById("nota1").value);
       let nota2 = Number(document.getElementById("nota2").value);
-      let resultado = document.getElementById("resultado");
-
-      let media = (nota1 + nota2) / 2;
-      resultado.innerText = media;
       
+      // Verificando se as notas são válidas
+      if (isNaN(nota1) || isNaN(nota2) || nota1 === 0 || nota2 === 0) {
+        document.getElementById("resultado").innerText = "Por favor, insira notas válidas!";
+        return;
+      }
+      
+      // Calculando a média
+      let media = (nota1 + nota2) / 2;
+      
+      // Arredondando a média para duas casas decimais
+      media = media.toFixed(2);
+      
+      // Exibindo o resultado
+      document.getElementById("resultado").innerText = `A média das notas é: ${media}`;
     }
-
 
   </script>
 </body>
